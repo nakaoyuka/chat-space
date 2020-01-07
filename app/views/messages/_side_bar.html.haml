@@ -1,0 +1,16 @@
+.side-bar
+  .side-header
+    .side-header__box
+      %p.side-header__box__name
+        potepote
+      .side-header__box__menu
+        = link_to "#", class:"side-header__box__menu--icon" do
+          = icon('fas','edit', class:"side-header__box__menu--icon--edit")
+        = link_to "#", class:"side-header__box__menu--icon" do
+          = icon('fas','cog', class:"side-header__box__menu--icon--cog")
+  .side-group
+    = link_to "#",class:"side-group__box" do
+      %p.side-group__box__group-name
+        team : potepote
+      %p.side-group__box__group-message
+        test
