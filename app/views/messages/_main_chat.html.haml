@@ -2,20 +2,15 @@
   .chat-header
     .chat-header__group-box
       .chat-header__group-box__name
-        team : potepote
       .chat-header__group-box__member
-        Member: potepote
     .chat-header__edit
-      = link_to "Edit","https://twitter.com/",class:"btn" 
+      = link_to "Edit", edit_group_path(current_user), class:"btn"
   .chat-message
     .chat-message__info
       .chat-message__info__box
         .chat-message__info__box__name
-          potepote
         .chat-message__info__box__date
-          2020/12/12(wed) 12:12
       .chat-message__info__message-box
-        hey!
   .chat-form
     %form.new-message
       .input-box
