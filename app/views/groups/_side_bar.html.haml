@@ -4,13 +4,17 @@
       %p.side-header__box__name
         = current_user.name
       .side-header__box__menu
-        = link_to "#", class:"side-header__box__menu--icon" do
+        = link_to new_group_path, class:"side-header__box__menu--icon" do
           = icon('fas','edit', class:"side-header__box__menu--icon--edit")
         = link_to edit_user_path(current_user), class:"side-header__box__menu--icon" do
           = icon('fas','cog', class:"side-header__box__menu--icon--cog")
   .side-group
-    = link_to "#",class:"side-group__box" do
-      %p.side-group__box__group-name
-        team : potepote
-      %p.side-group__box__group-message
-        test
+    - current_user.groups.each do |group|
+      .side-group__box
+        = link_to '#' do
+          %p.side-group__box__group-name
+            =group.name
+          %p.side-group__box__group-message
+            メッセージはまだありません
+
+            
