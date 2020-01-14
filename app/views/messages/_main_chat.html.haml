@@ -2,20 +2,25 @@
   .chat-header
     .chat-header__group-box
       .chat-header__group-box__name
+        =@group.name
       .chat-header__group-box__member
+        Member:
+        - @group.users.each do |user|
+          = user.name
     .chat-header__edit
       = link_to "Edit", edit_group_path(current_user), class:"btn"
   .chat-message
+    = render @messages
     .chat-message__info
       .chat-message__info__box
         .chat-message__info__box__name
         .chat-message__info__box__date
       .chat-message__info__message-box
   .chat-form
-    %form.new-message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: "new-message", placeholder: 'type a message'
       .input-box
-        %input{type:"text",placeholder: "type a message",class: "input-box__message"}
-        %label{class:"input-box__image"}
-          = icon('far','image')
-          %input{type:"file",class:"input-box__image__file"}
-      %input{type:"submit", value:"SEND",class:"submit-btn"}
+        = f.label :image, class:"input-box__image" do
+          =icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class:"submit-btn"
