@@ -9,6 +9,7 @@
           = user.name
     .chat-header__edit
       = link_to "Edit", edit_group_path(current_user), class:"btn"
+
   .chat-message
     = render @messages
     .chat-message__info
@@ -16,6 +17,7 @@
         .chat-message__info__box__name
         .chat-message__info__box__date
       .chat-message__info__message-box
+
   .chat-form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: "new-message", placeholder: 'type a message'
