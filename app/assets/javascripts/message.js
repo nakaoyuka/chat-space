@@ -53,7 +53,6 @@ $(function() {
       data: {id: last_message_id}                     //キーを自分で決め（今回はid)そこに先ほど定義したlast_message_idを代入。これはコントローラーのparamsで取得される。
     })
     .done(function(messages) {                        //通信成功したら、controllerから受け取ったデータ（messages)を引数にとって以下のことを行う
-      console.log(messages);
       if (messages.length !== 0) {
         var insertHTML = '';                            //追加するHTMLの入れ物を作る
         $.each(messages, function(i, message) {         //取得したメッセージたちをEach文で分解
