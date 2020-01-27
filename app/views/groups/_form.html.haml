@@ -31,7 +31,7 @@
 
         //そのグループに属するユーザーの配列をユーザーごとに分解する
         - group.users.each do |user|
-            //もともと自分は表示されているので、それ以外のユーザーを表示
+            
           - if current_user.name != user.name
             .chat-group-user.clearfix.js-chat-member
               %input{name: "group[user_ids][]", type: "hidden", value: user.id}
