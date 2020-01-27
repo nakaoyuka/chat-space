@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  def index
+    return nil if params[:keyword] == ""    #キーワードがなければnilを返す
+    @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)    #その文字を含むユーザーを探してきて、@usersに代入、ただしログインしている自分は除く。10人まで。
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 
   def edit
   end
