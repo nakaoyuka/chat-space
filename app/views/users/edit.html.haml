@@ -4,7 +4,6 @@
       %h2 Edit Account
       %h5 アカウントの編集
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
-      -# %i.btn ログアウト
       = link_to "トップページに戻る", :back, class: 'btn'
     .account-page__inner--right.user-form
       = form_for(current_user) do |f|
